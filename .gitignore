@@ -1,0 +1,17 @@
+# Dependencies
+26sunday-web/node_modules/
+node_modules/
+
+# Next.js build
+26sunday-web/.next/
+.next/
+26sunday-web/out/
+out/
+26sunday-web/build/
+
+# OS / Environment
+.DS_Store
+*.pem
+.env*.local
+.env
+*.log

@@ -1,0 +1,473 @@
+@import "tailwindcss";
+
+/* ============================================================
+   26Sunday Design System — Brand Tokens (Tailwind v4)
+   ============================================================ */
+
+:root {
+  /* Brand Colors — Warm Cream White & Space Accent Theme */
+  --color-primary: #0B1F3A;
+  --color-accent: #ff5757;
+  --color-accent-soft: #fdf2f0;
+  --color-accent-hover: #e03e3e;
+  --color-success: #1C8A5A;
+  --color-warning: #D97706;
+  --color-neutral-900: #0F1115;
+  --color-neutral-700: #374151;
+  --color-neutral-600: #5B6472;
+  --color-neutral-400: #9CA3AF;
+  --color-neutral-200: #E6DFC5;
+  --color-neutral-100: #F4EFE6;
+  --color-white: #FAF7F2;
+
+  /* Spacing & Layout */
+  --header-height: 72px;
+
+  /* Transitions */
+  --transition-default: 200ms ease;
+  --transition-slow: 400ms ease;
+}
+
+@theme inline {
+  /* Color palette */
+  --color-primary: var(--color-primary);
+  --color-accent: var(--color-accent);
+  --color-accent-soft: var(--color-accent-soft);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-neutral-900: var(--color-neutral-900);
+  --color-neutral-700: var(--color-neutral-700);
+  --color-neutral-600: var(--color-neutral-600);
+  --color-neutral-400: var(--color-neutral-400);
+  --color-neutral-200: var(--color-neutral-200);
+  --color-neutral-100: var(--color-neutral-100);
+
+  /* Typography */
+  --font-sans: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
+
+  /* Type scale (modular 1.25 ratio base 16px) */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+
+  /* Letter spacing */
+  --tracking-tight: -0.025em;
+  --tracking-tighter: -0.04em;
+}
+
+/* ============================================================
+   Global Base Styles
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-white);
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 87, 87, 0.04) 1px, transparent 0);
+  background-size: 32px 32px;
+  color: var(--color-neutral-900);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* ============================================================
+   Typography
+   ============================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.15;
+  color: var(--color-primary);
+}
+
+h1 { font-size: clamp(2.25rem, 5vw, 3.75rem); }
+h2 { font-size: clamp(1.875rem, 4vw, 2.75rem); }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
+
+p {
+  color: var(--color-neutral-600);
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============================================================
+   Header height reservation (prevents CLS on scroll-collapse)
+   ============================================================ */
+
+.site-content {
+  padding-top: 0;
+}
+
+/* ============================================================
+   Focus styles (WCAG 2.1 AA)
+   ============================================================ */
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ============================================================
+   Animations
+   ============================================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.25s ease forwards;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ============================================================
+   Scrollbar
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-neutral-100);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-400);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neutral-600);
+}
+
+/* ============================================================
+   Nav Glass Hover Effect
+   ============================================================ */
+
+.nav-glass-item {
+  position: relative;
+  transition: all 200ms ease;
+}
+
+.nav-glass-item:hover {
+  background: rgba(11, 31, 58, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 4px 16px rgba(255, 87, 87, 0.1);
+}
+
+/* ============================================================
+   Utility classes
+   ============================================================ */
+
+.container-wide {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.container-narrow {
+  max-width: 800px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.section-pad {
+  padding-block: 6rem;
+}
+
+.section-pad-sm {
+  padding-block: 4rem;
+}
+
+@media (max-width: 768px) {
+  .section-pad {
+    padding-block: 4rem;
+  }
+  .section-pad-sm {
+    padding-block: 2.5rem;
+  }
+}
+
+/* ============================================================
+   Prose-style content blocks
+   ============================================================ */
+
+.prose-content p + p {
+  margin-top: 1rem;
+}
+
+/* ============================================================
+   Platform Pages — Showcase Design System
+   ============================================================ */
+
+/* Hero gradient — deep navy with pure royal blue ambient glow */
+.platform-hero-gradient {
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(47, 111, 237, 0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(26, 61, 110, 0.4) 0%, transparent 50%),
+    linear-gradient(135deg, #060e1a 0%, var(--color-primary) 40%, #0f2847 100%);
+}
+
+/* Diagonal grid background pattern */
+.diagonal-grid {
+  background-image:
+    linear-gradient(135deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(225deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 1px 3px rgba(11, 31, 58, 0.04),
+    0 8px 24px rgba(11, 31, 58, 0.06);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: var(--color-accent);
+  box-shadow:
+    0 1px 3px rgba(11, 31, 58, 0.04),
+    0 12px 32px rgba(11, 31, 58, 0.08),
+    0 0 0 1px rgba(255, 87, 87, 0.15),
+    0 0 40px rgba(255, 87, 87, 0.06);
+  transform: translateY(-4px);
+}
+
+/* Dark glass card variant (for dark backgrounds) */
+.glass-card-dark {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-dark:hover {
+  border-color: rgba(255, 87, 87, 0.4);
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.15),
+    0 0 40px rgba(255, 87, 87, 0.08);
+  transform: translateY(-3px);
+}
+
+/* Stat pill (inline metric badges in hero) */
+.platform-stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+}
+
+.platform-stat-pill:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 87, 87, 0.3);
+}
+
+/* Number badge for value prop cards */
+.number-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background: var(--color-accent);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Gradient section divider */
+.gradient-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(47, 111, 237, 0.35), transparent);
+  opacity: 0.4;
+}
+
+/* Subtle float animation */
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: subtleFloat 4s ease-in-out infinite;
+}
+
+/* Stagger animation for card entrance */
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-enter {
+  animation: cardEnter 0.5s ease forwards;
+  opacity: 0;
+}
+
+/* ============================================================
+   Print Media Styles (Book / Enterprise Legal Formatting)
+   ============================================================ */
+
+@media print {
+  /* Hide non-printable web elements: Header nav, Footer, Sidebars, Buttons */
+  header,
+  footer,
+  aside,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Reset document background & text colors for high-contrast crisp paper printing */
+  html, body {
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-family: 'Times New Roman', Georgia, serif, -apple-system, sans-serif !important;
+    font-size: 11pt !important;
+    line-height: 1.6 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Page margins */
+  @page {
+    margin: 20mm 15mm 20mm 15mm;
+  }
+
+  /* Reset layout containers */
+  .site-content {
+    padding-top: 0 !important;
+  }
+
+  .min-h-screen {
+    min-height: auto !important;
+    background: #ffffff !important;
+  }
+
+  .max-w-6xl, .max-w-4xl, .lg\:col-span-8 {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Section cards format as clean chapter blocks */
+  main section {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    box-shadow: none !important;
+    padding: 12pt 0 !important;
+    margin-bottom: 14pt !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Legal Section Headings in print */
+  main h2 {
+    color: #000000 !important;
+    font-size: 14pt !important;
+    font-weight: bold !important;
+    margin-top: 10pt !important;
+    margin-bottom: 6pt !important;
+  }
+
+  /* Text elements in print */
+  p, div, span, li {
+    color: #111111 !important;
+  }
+
+  /* Container cards reset to clean flat text */
+  .rounded-2xl, .rounded-xl, .p-4, .p-6, .p-8 {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 2pt 0 !important;
+    background: transparent !important;
+  }
+}
+
