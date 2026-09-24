@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
@@ -225,7 +225,7 @@ export default function ReadinessFrameworksCarousel({ data }) {
     data?.subtext ||
     'Pre-mapped controls, continuous audit gap-checks, and automated evidence templates tailored for high-growth enterprises.';
 
-  const checkScroll = () => {
+  const checkScroll = useCallback(() => {
     if (!scrollRef.current) return;
     const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
     setCanScrollLeft(scrollLeft > 10);
@@ -234,7 +234,7 @@ export default function ReadinessFrameworksCarousel({ data }) {
     const cardWidth = 460;
     const index = Math.round(scrollLeft / cardWidth);
     setActiveIndex(Math.min(index, items.length));
-  };
+  }, [items.length]);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -246,7 +246,7 @@ export default function ReadinessFrameworksCarousel({ data }) {
       el.removeEventListener('scroll', checkScroll);
       window.removeEventListener('resize', checkScroll);
     };
-  }, [items.length]);
+  }, [checkScroll]);
 
   const scroll = (direction) => {
     if (!scrollRef.current) return;

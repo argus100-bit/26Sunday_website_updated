@@ -21,18 +21,25 @@ export default function RotatingWord({
     const targetIndex = externalWordIndex % wordsLength;
     if (targetIndex === index) return;
 
-    setRevolverState('roll-out');
+    let t2;
+    const t0 = setTimeout(() => {
+      setRevolverState('roll-out');
+    }, 0);
 
     const t1 = setTimeout(() => {
       setIndex(targetIndex);
       setRevolverState('roll-in');
 
-      const t2 = setTimeout(() => {
+      t2 = setTimeout(() => {
         setRevolverState('idle');
       }, 220);
     }, 220);
 
-    return () => clearTimeout(t1);
+    return () => {
+      clearTimeout(t0);
+      clearTimeout(t1);
+      if (t2) clearTimeout(t2);
+    };
   }, [externalWordIndex, wordsLength, index]);
 
   // Dynamic font scaling per word length

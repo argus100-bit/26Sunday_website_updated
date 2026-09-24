@@ -4,6 +4,7 @@ import QuestionnaireScrollStory from '@/components/sections/QuestionnaireScrollS
 import QuestionnaireHowItWorks from '@/components/sections/QuestionnaireHowItWorks';
 import CapabilitiesGrid from '@/components/sections/CapabilitiesGrid';
 import QuestionnaireReportCallout from '@/components/sections/QuestionnaireReportCallout';
+import QuestionnaireProblemIllustration from '@/components/illustrations/QuestionnaireProblemIllustration';
 import { questionnaireContent } from '@/content/solutions/questionnaire';
 import { Timer, Zap, CheckCircle2 } from 'lucide-react';
 
@@ -29,6 +30,12 @@ export default function QuestionnairePage() {
         ctaHref={hero.ctaHref}
         secondaryCtaLabel={hero.secondaryCtaLabel}
         secondaryCtaHref={hero.secondaryCtaHref}
+        image={hero.image}
+        imageAlt={hero.imageAlt}
+        browserUrl={hero.browserUrl}
+        showBrowserBar={hero.showBrowserBar}
+        showFloatingBadge={hero.showFloatingBadge}
+        wideImage={hero.wideImage}
         showTrustSignals={false}
         enableTyping={false}
       />
@@ -83,6 +90,7 @@ export default function QuestionnairePage() {
         title={problemSolution.title}
         body={problemSolution.body}
         imagePosition={problemSolution.imagePosition}
+        illustrationComponent={<QuestionnaireProblemIllustration />}
       />
 
       {/* "Why 26Sunday Questionnaire" — Sticky Scroll Layer Assembly Story */}

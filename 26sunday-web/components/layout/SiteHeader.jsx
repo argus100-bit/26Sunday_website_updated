@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown } from 'lucide-react';
@@ -113,7 +114,7 @@ export default function SiteHeader() {
               }}
               aria-hidden="true"
             >
-              <img src="/logo.svg" alt="26Sunday Logo" className="w-full h-full object-contain rounded-[8px]" />
+              <Image src="/logo.svg" alt="26Sunday Logo" width={40} height={40} className="w-full h-full object-contain rounded-[8px]" />
             </span>
             <span
               className="font-bold tracking-tight overflow-hidden transition-all duration-400 flex items-center"

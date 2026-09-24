@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { 
   Calendar, 
@@ -92,9 +93,11 @@ export default async function ReportDetailPage({ params }) {
           <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-white/10 text-xs text-neutral-300">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-black p-1 flex items-center justify-center flex-shrink-0 shadow-sm overflow-hidden border border-white/20">
-                <img 
+                <Image 
                   src="/logo.svg" 
                   alt="26Sunday Logo" 
+                  width={24}
+                  height={24}
                   className="w-full h-full object-contain" 
                 />
               </div>

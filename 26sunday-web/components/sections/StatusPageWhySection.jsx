@@ -182,7 +182,7 @@ export default function StatusPageWhySection({ data }) {
                             </span>
                           </div>
                           <p className="text-xs text-neutral-600 font-mono leading-tight">
-                            "DB maintenance complete. All systems nominal."
+                            &quot;DB maintenance complete. All systems nominal.&quot;
                           </p>
                         </div>
 

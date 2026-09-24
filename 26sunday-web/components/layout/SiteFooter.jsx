@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import DotMatrix from '@/components/ui/DotMatrix';
 
 // Inline SVG social icons (lucide-react dropped branded icons)
@@ -69,14 +70,6 @@ const footerColumns = [
       { text: 'Terms of Service', href: '/legal/terms-of-service' },
     ],
   },
-  {
-    label: 'Trust',
-    links: [
-      { text: 'Trust Center', href: '/solutions/trust-center' },
-      { text: 'Status Page', href: '/solutions/status-page' },
-      { text: 'Security', href: '/company/contact' },
-    ],
-  },
 ];
 
 const socialLinks = [
@@ -104,7 +97,7 @@ export default function SiteFooter() {
                 style={{ backgroundColor: '#000000' }}
                 aria-hidden="true"
               >
-                <img src="/logo.png" alt="26Sunday Logo" className="w-full h-full object-contain rounded-[4px]" />
+                <Image src="/logo.png" alt="26Sunday Logo" width={32} height={32} className="w-full h-full object-contain rounded-[4px]" />
               </span>
               <span className="text-xl font-bold tracking-tight group-hover:opacity-90 transition-opacity inline-flex items-center">
                 <span className="text-white">26</span>
@@ -146,7 +139,7 @@ export default function SiteFooter() {
         </div>
 
         {/* Link columns */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
           {footerColumns.map(col => (
             <div key={col.label}>
               <h3

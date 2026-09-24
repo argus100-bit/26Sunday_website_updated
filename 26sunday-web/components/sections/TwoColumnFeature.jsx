@@ -10,6 +10,7 @@ import Image from 'next/image';
  * @param {'left'|'right'} [props.imagePosition] - Which side the image goes on (default: right)
  * @param {string} [props.eyebrow]
  * @param {string[]} [props.bulletPoints]
+ * @param {React.ReactNode} [props.illustrationComponent] - Custom illustration component to render instead of image/placeholder
  */
 export default function TwoColumnFeature({
   title,
@@ -19,6 +20,7 @@ export default function TwoColumnFeature({
   imagePosition = 'right',
   eyebrow,
   bulletPoints,
+  illustrationComponent,
 }) {
   const imageFirst = imagePosition === 'left';
 
@@ -64,7 +66,9 @@ export default function TwoColumnFeature({
 
   const imageBlock = (
     <div className="flex items-center justify-center">
-      {image ? (
+      {illustrationComponent ? (
+        illustrationComponent
+      ) : image ? (
         <div className="rounded-2xl overflow-hidden shadow-xl w-full">
           <Image
             src={image}

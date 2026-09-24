@@ -9,7 +9,7 @@ export const homeContent = {
     ctaHref: '/get-started',
     secondaryCtaLabel: 'Learn More',
     secondaryCtaHref: '/company/about',
-    image: '/dashboard-preview.png',
+    image: '/homepage-dashboard.png',
     imageAlt: '26Sunday Platform Dashboard',
   },
 

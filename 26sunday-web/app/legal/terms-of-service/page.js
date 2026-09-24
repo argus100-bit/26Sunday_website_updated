@@ -11,15 +11,15 @@ import {
   Printer
 } from 'lucide-react';
 
+const navItems = [
+  { id: 'agreement', label: '1. Agreement & Acceptance', icon: FileText },
+  { id: 'definitions', label: '2. Definitions', icon: BookOpen },
+  { id: 'fees-payment', label: '3. Fees and Payment', icon: CreditCard },
+  { id: 'renewals-termination', label: '4. Renewals & Termination', icon: RefreshCw },
+];
+
 export default function TermsOfServicePage() {
   const [activeSection, setActiveSection] = useState('agreement');
-
-  const navItems = [
-    { id: 'agreement', label: '1. Agreement & Acceptance', icon: FileText },
-    { id: 'definitions', label: '2. Definitions', icon: BookOpen },
-    { id: 'fees-payment', label: '3. Fees and Payment', icon: CreditCard },
-    { id: 'renewals-termination', label: '4. Renewals & Termination', icon: RefreshCw },
-  ];
 
   useEffect(() => {
     const handleScroll = () => {

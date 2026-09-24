@@ -3,6 +3,7 @@ import TwoColumnFeature from '@/components/sections/TwoColumnFeature';
 import StatusPageWhySection from '@/components/sections/StatusPageWhySection';
 import CapabilitiesGrid from '@/components/sections/CapabilitiesGrid';
 import StatusReportCallout from '@/components/sections/StatusReportCallout';
+import StatusPageProblemIllustration from '@/components/illustrations/StatusPageProblemIllustration';
 import { statusPageContent } from '@/content/solutions/statusPage';
 
 export const metadata = {
@@ -27,6 +28,12 @@ export default function StatusPagePage() {
         ctaHref={hero.ctaHref}
         secondaryCtaLabel={hero.secondaryCtaLabel}
         secondaryCtaHref={hero.secondaryCtaHref}
+        image={hero.image}
+        imageAlt={hero.imageAlt}
+        browserUrl={hero.browserUrl}
+        showBrowserBar={hero.showBrowserBar}
+        showFloatingBadge={hero.showFloatingBadge}
+        wideImage={hero.wideImage}
         showTrustSignals={false}
         enableTyping={false}
       />
@@ -37,6 +44,7 @@ export default function StatusPagePage() {
           title={problemSolution.title}
           body={problemSolution.body}
           imagePosition={problemSolution.imagePosition}
+          illustrationComponent={<StatusPageProblemIllustration />}
         />
       )}
 

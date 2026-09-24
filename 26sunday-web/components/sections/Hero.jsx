@@ -22,6 +22,10 @@ export default function Hero({
   badgeIcon,
   image,
   imageAlt,
+  browserUrl = 'app.26sunday.com/dashboard',
+  showBrowserBar = true,
+  showFloatingBadge = true,
+  wideImage = false,
   prefix = "We steady the ",
   words = ['bridge.', 'trust.', 'foundation.', 'course.'],
   subtextWords = ['Sales', 'Compliance', 'Security', 'Legal', 'Procurement', 'Vendor Risk'],
@@ -60,10 +64,10 @@ export default function Hero({
       />
 
       <div className="container-wide relative">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center pt-28 pb-20 lg:pt-36 lg:pb-28">
+        <div className={`grid ${wideImage ? 'lg:grid-cols-12' : 'lg:grid-cols-2'} gap-12 lg:gap-16 items-center pt-28 pb-20 lg:pt-36 lg:pb-28`}>
 
           {/* Text block */}
-          <div className="animate-fade-in-up">
+          <div className={`animate-fade-in-up ${wideImage ? 'lg:col-span-5' : ''}`}>
             {eyebrow && (
               <Badge label={eyebrow} variant={badgeVariant || "navy"} icon={badgeIcon} className="mb-6" />
             )}
@@ -139,50 +143,53 @@ export default function Hero({
           </div>
 
           {/* Image / visual block */}
-          <div className="relative animate-fade-in">
+          <div className={`relative animate-fade-in flex justify-center lg:justify-end ${wideImage ? 'lg:col-span-7' : ''}`}>
             {image ? (
               <div
-                className="relative rounded-2xl overflow-hidden shadow-2xl border transition-all duration-300 hover:shadow-3xl"
+                className={`relative overflow-hidden shadow-2xl border transition-all duration-300 hover:shadow-3xl w-full max-w-[540px] ${showBrowserBar ? 'rounded-2xl' : 'rounded-xl'}`}
                 style={{
-                  backgroundColor: 'white',
+                  backgroundColor: '#FAFAFA',
                   borderColor: 'var(--color-neutral-200)',
                 }}
               >
                 {/* Browser bar */}
-                <div
-                  className="px-4 py-3 flex items-center justify-between border-b"
-                  style={{
-                    backgroundColor: '#FAF7F2',
-                    borderColor: 'var(--color-neutral-200)',
-                  }}
-                >
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FF5F56' }} />
-                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FFBD2E' }} />
-                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#27C93F' }} />
-                  </div>
+                {showBrowserBar && (
                   <div
-                    className="px-3 py-1 rounded-md text-[11px] font-mono border flex items-center gap-1.5 shadow-inner"
+                    className="px-4 py-3 flex items-center justify-between border-b"
                     style={{
-                      backgroundColor: 'white',
+                      backgroundColor: '#FAF7F2',
                       borderColor: 'var(--color-neutral-200)',
-                      color: 'var(--color-neutral-600)',
                     }}
                   >
-                    <span style={{ color: 'var(--color-success)' }}>https://</span>
-                    <span>app.26sunday.com/dashboard</span>
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FF5F56' }} />
+                      <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FFBD2E' }} />
+                      <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#27C93F' }} />
+                    </div>
+                    <div
+                      className="px-3 py-1 rounded-md text-[11px] font-mono border flex items-center gap-1.5 shadow-inner"
+                      style={{
+                        backgroundColor: 'white',
+                        borderColor: 'var(--color-neutral-200)',
+                        color: 'var(--color-neutral-600)',
+                      }}
+                    >
+                      <span style={{ color: 'var(--color-success)' }}>https://</span>
+                      <span>{browserUrl}</span>
+                    </div>
+                    <div className="w-10" />
                   </div>
-                  <div className="w-10" />
-                </div>
+                )}
 
                 {/* Dashboard Image */}
-                <div className="relative w-full overflow-hidden bg-white">
+                <div className="relative w-full overflow-hidden bg-[#FAFAFA]">
                   <Image
                     src={image}
                     alt={imageAlt || '26Sunday Platform Dashboard'}
                     width={1200}
-                    height={675}
+                    height={750}
                     priority
+                    unoptimized={typeof image === 'string' && image.endsWith('.svg')}
                     className="w-full h-auto object-cover block"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
@@ -217,27 +224,29 @@ export default function Hero({
             )}
 
             {/* Floating accent card */}
-            <div
-              className="absolute -bottom-5 -left-5 rounded-xl p-4 shadow-xl border"
-              style={{
-                backgroundColor: 'white',
-                borderColor: 'var(--color-neutral-200)',
-              }}
-              aria-hidden="true"
-            >
-              <div className="flex items-center gap-3">
-                <div
-                  className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ backgroundColor: 'var(--color-success)' }}
-                >
-                  <span className="text-white text-xs">✓</span>
-                </div>
-                <div>
-                  <p className="text-xs font-semibold" style={{ color: 'var(--color-primary)' }}>All systems operational</p>
-                  <p className="text-xs" style={{ color: 'var(--color-neutral-600)' }}>Real-time trust monitoring</p>
+            {showFloatingBadge && (
+              <div
+                className="absolute -bottom-5 -left-5 rounded-xl p-4 shadow-xl border"
+                style={{
+                  backgroundColor: 'white',
+                  borderColor: 'var(--color-neutral-200)',
+                }}
+                aria-hidden="true"
+              >
+                <div className="flex items-center gap-3">
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: 'var(--color-success)' }}
+                  >
+                    <span className="text-white text-xs">✓</span>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold" style={{ color: 'var(--color-primary)' }}>All systems operational</p>
+                    <p className="text-xs" style={{ color: 'var(--color-neutral-600)' }}>Real-time trust monitoring</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
 
         </div>

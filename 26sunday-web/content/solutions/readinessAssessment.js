@@ -25,6 +25,12 @@ export const readinessAssessmentContent = {
     ctaHref: '/get-started',
     secondaryCtaLabel: 'See All Solutions',
     secondaryCtaHref: '/solutions',
+    image: '/readiness_dashboard.svg',
+    imageAlt: '26Sunday Readiness Assessment Dashboard',
+    browserUrl: 'app.26sunday.com/readiness',
+    showBrowserBar: false,
+    showFloatingBadge: false,
+    wideImage: false,
   },
 
   frameworksSection: {

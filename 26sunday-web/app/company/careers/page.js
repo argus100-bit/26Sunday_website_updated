@@ -102,7 +102,7 @@ export default function CareersPage() {
             <span
               className="inline-block text-xs font-mono font-bold tracking-widest uppercase mb-3 text-[#FF5757]"
             >
-              // OPERATING PRINCIPLES
+              {'// OPERATING PRINCIPLES'}
             </span>
             <h2
               id="how-we-work-heading"

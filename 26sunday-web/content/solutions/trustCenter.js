@@ -18,6 +18,12 @@ export const trustCenterContent = {
     ctaHref: '/get-started',
     secondaryCtaLabel: 'See All Solutions',
     secondaryCtaHref: '/solutions',
+    image: '/trusttt.svg',
+    imageAlt: '26Sunday Trust Center Dashboard',
+    browserUrl: 'app.26sunday.com/trust-center',
+    showBrowserBar: false,
+    showFloatingBadge: false,
+    wideImage: false,
   },
 
   features: [

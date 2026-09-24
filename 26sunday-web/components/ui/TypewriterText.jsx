@@ -65,12 +65,17 @@ export default function TypewriterText({
     const targetIndex = externalWordIndex % activeWordsLength;
     if (targetIndex === wordIndex) return;
 
-    setAnimating(true);
+    const t0 = setTimeout(() => {
+      setAnimating(true);
+    }, 0);
     const t = setTimeout(() => {
       setWordIndex(targetIndex);
       setAnimating(false);
     }, 200);
-    return () => clearTimeout(t);
+    return () => {
+      clearTimeout(t0);
+      clearTimeout(t);
+    };
   }, [isTypingDone, activeWordsLength, externalWordIndex, wordIndex]);
 
   // Longest word for height reservation

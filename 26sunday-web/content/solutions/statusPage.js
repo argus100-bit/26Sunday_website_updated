@@ -18,6 +18,12 @@ export const statusPageContent = {
     ctaHref: '/get-started',
     secondaryCtaLabel: 'See All Solutions',
     secondaryCtaHref: '/solutions',
+    image: '/dashboard_status.svg',
+    imageAlt: '26Sunday Status Page Dashboard',
+    browserUrl: 'status.26sunday.com',
+    showBrowserBar: false,
+    showFloatingBadge: false,
+    wideImage: false,
   },
 
   problemSolution: {

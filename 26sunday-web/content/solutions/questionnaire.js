@@ -18,6 +18,12 @@ export const questionnaireContent = {
     ctaHref: '/get-started',
     secondaryCtaLabel: 'See All Solutions',
     secondaryCtaHref: '/solutions',
+    image: '/dashboard_questionnaire.svg',
+    imageAlt: '26Sunday Questionnaire Automation Dashboard',
+    browserUrl: 'app.26sunday.com/questionnaire',
+    showBrowserBar: false,
+    showFloatingBadge: false,
+    wideImage: false,
   },
 
   problemSolution: {

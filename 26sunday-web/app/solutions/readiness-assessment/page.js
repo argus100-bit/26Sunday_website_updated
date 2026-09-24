@@ -28,6 +28,12 @@ export default function ReadinessAssessmentPage() {
         ctaHref={hero.ctaHref}
         secondaryCtaLabel={hero.secondaryCtaLabel}
         secondaryCtaHref={hero.secondaryCtaHref}
+        image={hero.image}
+        imageAlt={hero.imageAlt}
+        browserUrl={hero.browserUrl}
+        showBrowserBar={hero.showBrowserBar}
+        showFloatingBadge={hero.showFloatingBadge}
+        wideImage={hero.wideImage}
         showTrustSignals={false}
         enableTyping={false}
       />

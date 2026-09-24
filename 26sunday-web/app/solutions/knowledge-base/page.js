@@ -214,10 +214,14 @@ export default function KnowledgeBasePage() {
             <div className="flex-shrink-0">
               <Link
                 href="/company/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-none bg-white text-[#0B1F3A] font-bold text-xs uppercase tracking-wider hover:bg-slate-100 transition-colors shadow-lg"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-none font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-lg group hover:brightness-110 active:brightness-95"
+                style={{
+                  backgroundColor: 'var(--color-accent)',
+                  color: '#FFFFFF',
+                }}
               >
-                <span>Talk to Engineering</span>
-                <ArrowRight size={14} />
+                <span style={{ color: '#FFFFFF' }}>Talk to Engineering</span>
+                <ArrowRight size={14} style={{ color: '#FFFFFF' }} className="transition-transform duration-200 group-hover:translate-x-1" />
               </Link>
             </div>
           </div>

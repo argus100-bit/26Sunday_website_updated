@@ -14,18 +14,18 @@ import {
   Printer
 } from 'lucide-react';
 
+const navItems = [
+  { id: 'introduction', label: '1. Introduction', icon: FileText },
+  { id: 'personal-information', label: '2. Personal Information Collected', icon: Lock },
+  { id: 'use-of-data', label: '3. Use of Personal Data', icon: UserCheck },
+  { id: 'data-rights', label: '4. Data Protection Rights', icon: ShieldCheck },
+  { id: 'data-retention', label: '5. Data Retention', icon: Clock },
+  { id: 'children-privacy', label: '6. Children’s Privacy', icon: Baby },
+  { id: 'global-compliance', label: '7. Data Protection & Laws', icon: Globe2 },
+];
+
 export default function PrivacyPolicyPage() {
   const [activeSection, setActiveSection] = useState('introduction');
-
-  const navItems = [
-    { id: 'introduction', label: '1. Introduction', icon: FileText },
-    { id: 'personal-information', label: '2. Personal Information Collected', icon: Lock },
-    { id: 'use-of-data', label: '3. Use of Personal Data', icon: UserCheck },
-    { id: 'data-rights', label: '4. Data Protection Rights', icon: ShieldCheck },
-    { id: 'data-retention', label: '5. Data Retention', icon: Clock },
-    { id: 'children-privacy', label: '6. Children’s Privacy', icon: Baby },
-    { id: 'global-compliance', label: '7. Data Protection & Laws', icon: Globe2 },
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
