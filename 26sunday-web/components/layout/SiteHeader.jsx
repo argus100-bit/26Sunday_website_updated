@@ -172,10 +172,9 @@ export default function SiteHeader() {
               Book a Demo
             </Button>
             <Button
-              href="https://app.26sunday.com"
+              href="/app"
               variant={isDarkTheme ? 'outline' : 'secondary'}
               size="sm"
-              external
               className={isDarkTheme ? '!text-white !border-white/30 hover:!bg-white/10' : ''}
             >
               Log In
@@ -266,11 +265,11 @@ export default function SiteHeader() {
                   Book a Demo
                 </Button>
                 <Button
-                  href="https://app.26sunday.com"
+                  href="/app"
                   variant={isDarkTheme ? 'outline' : 'primary'}
                   size="md"
                   className={`w-full justify-center ${isDarkTheme ? '!text-white !border-white/30' : ''}`}
-                  external
+                  onClick={() => setMobileOpen(false)}
                 >
                   Log In
                 </Button>

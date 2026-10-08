@@ -1,4 +1,4 @@
-import { Inter, Caveat } from 'next/font/google';
+import { Inter, Caveat, Space_Mono } from 'next/font/google';
 import './globals.css';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
@@ -13,6 +13,13 @@ const caveat = Caveat({
   subsets: ['latin'],
   variable: '--font-handwriting',
   weight: ['400', '500', '600', '700'],
+  display: 'swap',
+});
+
+const spaceMono = Space_Mono({
+  subsets: ['latin'],
+  variable: '--font-space-mono',
+  weight: ['400', '700'],
   display: 'swap',
 });
 
@@ -63,7 +70,7 @@ export const metadata = {
  */
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${caveat.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${caveat.variable} ${spaceMono.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning>
         <SiteHeader />
         <div className="site-content">
