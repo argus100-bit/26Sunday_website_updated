@@ -157,7 +157,7 @@ export default function GetStartedPage() {
                   </h3>
 
                   <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                    Thank you, <strong className="text-[#0B1F3A]">{formData.firstName}</strong>. Our team will reach out to <strong className="text-[#0B1F3A]">{formData.email}</strong> within 4 business hours to schedule your walkthrough.
+                    Thank you, <strong className="text-[#0B1F3A]">{formData.firstName}</strong>. Our team will reach out to <strong className="text-[#0B1F3A]">{formData.email}</strong> within 6 business hours to schedule your walkthrough.
                   </p>
 
                   <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
