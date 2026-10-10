@@ -362,7 +362,7 @@ export default function GetStartedPage() {
             </div>
 
             {/* Trust signals */}
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] text-slate-500 font-medium">
+            {/* <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] text-slate-500 font-medium">
               <div className="flex items-center gap-1.5">
                 <Lock size={12} className="text-slate-400" />
                 <span>256-bit encryption</span>
@@ -375,7 +375,7 @@ export default function GetStartedPage() {
                 <Clock size={12} className="text-slate-400" />
                 <span>4hr response</span>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* ─── RIGHT: Value Proposition & Timeline ─── */}
